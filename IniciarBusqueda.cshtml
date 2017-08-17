@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "IniciarBusqueda";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2></h2>
+&#160&#160&#160&#160&#160&#160<font size="5">Registrar Nueva Búsqueda</font>&#160&#160&#160&#160&#160&#160 @*<--------  Como agregar espacios?*@
+@*<label> </label>*@
+<a href="/Busqueda" class="btn btn-info">Volver</a>
+
+<h2></h2>
+<h2></h2>
+<form class="form-group">
+    <label form="SearchProfile" class="col-lg-2 control-label">Perfil de búsqueda</label>
+    <textarea class="form-control" rows="3" id="SearchProfile" placeholder="Ingresar Perfil a buscar"></textarea>
+</form>
+
+<div class="form-group">
+    <label for="inputPage" class="col-lg-2 control-label">Publicado en</label>
+    <input type="text" size="20" class="form-control" id="inputPage" placeholder="Sitio">
+</div>
+
+<form class="form-horizontal">
+    @*Como mover los forms, y como achicarle el atributo cols?*@
+    <input type="text" size="20" class="form-control" id="inputPage" placeholder="">
+</form>
+
+<a href="" class="btn btn-success">Registrar</a> @*codigo para agarrar descripción y sitios en donde enviar el perfil*@
