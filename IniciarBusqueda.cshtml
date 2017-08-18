@@ -11,33 +11,36 @@
 <h2></h2>
 <h2></h2>
 
-<label for="PerfilBúsqueda" class="col-lg-6 control-label">Perfil de Búsqueda</label> <label for="inputPage">Publicado en</label>  
-<div class="form-group">   
-    <div class="col-lg-6">
-        <textarea class="form-control" rows="24" id="PerfilBúsqueda" placeholder="Descripción del perfil que necesitas, una serie de aptitudes, conocimientos técnicos,requisitos preferentes y algún comentario particular"></textarea>
-    </div>
-</div>
-
-<div class="col-lg-6">
-    <input type="text" size="10" id="inputPage" placeholder="EJ:www.educaciónIT.com"> @*class="col-xs-8" <---------- Establecer el tamaño*@
-</div>
-
-<div class="col-lg-10">
-    <a href="" class="btn btn-info">Registrar</a> @*código para agarrar descripción y sitios en donde enviar el perfil*@
-</div>
 
 
-@*
-      <div class="form-group">
-        <label class="control-label">Publicado en</label>
-        <div class="input-group">
-            <input type="text" class="form-control">
-            <span class="input-group-btn">
-                <button class="btn btn-info" type="button">Agregar</button>
-            </span>
-            <span>
-                <textarea class="form-control" rows="16" id="PerfilBúsqueda" placeholder="Sitios"></textarea>
-            </span>
+
+<div class="Registrar Búsqueda">
+    <div class="form-group">
+        <div class="col-lg-6">
+            <label for="PerfilBúsqueda">Perfil de Búsqueda</label>
+            <textarea class="form-control" rows="24" id="PerfilBúsqueda" placeholder="Descripción del perfil que necesitas, una serie de aptitudes, conocimientos técnicos,requisitos preferentes y algún comentario particular"></textarea>
         </div>
     </div>
-*@
+
+    <div class="form-group">
+        <div class="col-lg-6">
+            <label class="control-label">Publicado en</label>
+            <div class="input-group">
+                <input type="text" size="10" class="form-control" placeholder="ej: www.educaciónIT.com">
+                <span class="input-group-btn">
+                    <button class="btn btn-info" type="submit">Agregar</button>
+                </span>
+            </div>
+            <textarea class="form-control" rows="20" id="PerfilBúsqueda" placeholder="Sitios"></textarea>
+            <button class="btn btn-success" type="submit">Registrar Búsqueda</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+@*class="col-xs-8" <---------- Establecer el tamaño*@
