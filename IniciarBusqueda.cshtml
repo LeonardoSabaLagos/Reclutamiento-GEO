@@ -2,26 +2,42 @@
     ViewBag.Title = "IniciarBusqueda";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2></h2>
-&#160&#160&#160&#160&#160&#160<font size="5">Registrar Nueva Búsqueda</font>&#160&#160&#160&#160&#160&#160 @*<--------  Como agregar espacios?*@
-@*<label> </label>*@
-<a href="/Busqueda" class="btn btn-info">Volver</a>
+<h2>
+    <font size="5">Registrar Nueva Búsqueda</font>
+    <a href="/Busqueda" class="btn btn-info">Volver</a>
+</h2>
 
 <h2></h2>
 <h2></h2>
-<form class="form-group">
-    <label form="SearchProfile" class="col-lg-2 control-label">Perfil de búsqueda</label>
-    <textarea class="form-control" rows="3" id="SearchProfile" placeholder="Ingresar Perfil a buscar"></textarea>
-</form>
+<h2></h2>
 
-<div class="form-group">
-    <label for="inputPage" class="col-lg-2 control-label">Publicado en</label>
-    <input type="text" size="20" class="form-control" id="inputPage" placeholder="Sitio">
+<label for="PerfilBúsqueda" class="col-lg-6 control-label">Perfil de Búsqueda</label> <label for="inputPage">Publicado en</label>  
+<div class="form-group">   
+    <div class="col-lg-6">
+        <textarea class="form-control" rows="24" id="PerfilBúsqueda" placeholder="Descripción del perfil que necesitas, una serie de aptitudes, conocimientos técnicos,requisitos preferentes y algún comentario particular"></textarea>
+    </div>
 </div>
 
-<form class="form-horizontal">
-    @*Como mover los forms, y como achicarle el atributo cols?*@
-    <input type="text" size="20" class="form-control" id="inputPage" placeholder="">
-</form>
+<div class="col-lg-6">
+    <input type="text" size="10" id="inputPage" placeholder="EJ:www.educaciónIT.com"> @*class="col-xs-8" <---------- Establecer el tamaño*@
+</div>
 
-<a href="" class="btn btn-success">Registrar</a> @*codigo para agarrar descripción y sitios en donde enviar el perfil*@
+<div class="col-lg-10">
+    <a href="" class="btn btn-info">Registrar</a> @*código para agarrar descripción y sitios en donde enviar el perfil*@
+</div>
+
+
+@*
+      <div class="form-group">
+        <label class="control-label">Publicado en</label>
+        <div class="input-group">
+            <input type="text" class="form-control">
+            <span class="input-group-btn">
+                <button class="btn btn-info" type="button">Agregar</button>
+            </span>
+            <span>
+                <textarea class="form-control" rows="16" id="PerfilBúsqueda" placeholder="Sitios"></textarea>
+            </span>
+        </div>
+    </div>
+*@
