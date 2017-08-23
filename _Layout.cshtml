@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/bootstrap.css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+
+    
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <ul class="nav navbar-brand"><li>ReclutamientoGEO</li></ul>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="Agenda">Agenda</a></li>
+                <li><a href="Busquedas">Búsquedas</a></li>
+                <li><a href="Candidatos">Candidatos</a></li>
+                <li><a href="Reportes">Reportes</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="Usuario">Usuario</a></li>
+                <li><a href="Salir">Salir</a></li>
+            </ul>
+        </div>
+    </nav>
+   
+            
+        
+
+    @RenderBody()
+    
+</body>
+</html>
