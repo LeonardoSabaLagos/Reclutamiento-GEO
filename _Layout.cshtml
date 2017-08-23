@@ -3,14 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/bootstrap.css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-
-    
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
@@ -29,15 +27,12 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="Usuario">Usuario</a></li>
-                <li><a href="Salir">Salir</a></li>
+                <li><a href="Usuarios"><span class="glyphicon glyphicon-user"></span> Usuario</a></li>
+                <li><a href="Logout"><span class="glyphicon glyphicon-log-in"></span> Salir</a></li>
             </ul>
         </div>
     </nav>
    
-            
-        
-
     @RenderBody()
     
 </body>
