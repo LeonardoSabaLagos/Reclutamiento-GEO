@@ -1,9 +1,16 @@
-﻿@{
+﻿@model Reclutamiento_GEO.Models.Busqueda
+@{
     ViewBag.Title = "RegistrarBusqueda";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+
+@using (Html.BeginForm())
+{
 <body>
+    @Html.ValidationSummary()
+@*  @Html.Partial()         <------ Para que es ??*@           
     <div class="Registrar Búsqueda">
         <div class="rowTitle">
             <div class="col-lg-10 col-lg-offset-1">
@@ -15,7 +22,7 @@
             <div class="form-group">
                 <div class="col-lg-5 col-lg-offset-1">
                     <label for="PerfilBúsqueda">Perfil de Búsqueda</label>
-                    <textarea class="form-control" rows="24" id="PerfilBúsqueda" placeholder="Descripción del perfil que necesitas, una serie de aptitudes, conocimientos técnicos,requisitos preferentes y algún comentario particular"></textarea>
+                    @Html.TextAreaFor(x => x.Descripcion, new {@class="form-control", rows="24", id="PerfilBúsqueda", placeholder="Descripción del perfil que necesitas, una serie de aptitudes, conocimientos técnicos,requisitos preferentes y algún comentario particular" })           
                 </div>
             </div>
 
@@ -23,12 +30,12 @@
                 <div class="col-lg-3 col-lg-offset-1">
                     <label class="control-label">Publicado en</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="ej: www.educaciónIT.com">
+                        <input type="text" class="form-control" placeholder="ej: www.educaciónIT.com"> 
                         <span class="input-group-btn">
                             <button class="btn btn-info" type="submit">Agregar</button>
                         </span>
                     </div>
-                    <textarea class="form-control" rows="22" id="PerfilBúsqueda" placeholder="Sitios"></textarea>
+                    @Html.TextAreaFor(x => x.Sitios ,new{ @class="form-control" ,rows="22", id="PerfilBúsqueda", placeholder="Sitios"})      
                 </div>
             </div>
             <div class="col-lg-1"></div>
@@ -42,3 +49,5 @@
         </div>
     </div>
 </body>
+}
+    
