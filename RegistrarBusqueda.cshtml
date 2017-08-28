@@ -1,53 +1,91 @@
-﻿@model Reclutamiento_GEO.Models.Busqueda
-@{
+﻿@{
     ViewBag.Title = "RegistrarBusqueda";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-
-@using (Html.BeginForm())
-{
 <body>
-    @Html.ValidationSummary()
-@*  @Html.Partial()         <------ Para que es ??*@           
+@*  @Html.Partial()         <------ Para que es ??*@   
+    
+
+            
     <div class="Registrar Búsqueda">
-        <div class="rowTitle">
-            <div class="col-lg-10 col-lg-offset-1">
-                <font size="5">Registrar Nueva Búsqueda</font>
-                <a class=" btn btn-info col-lg-offset-1" href="/Busqueda">Volver</a>
-            </div>
-        </div>
-        <div class="rowDatos">
-            <div class="form-group">
-                <div class="col-lg-5 col-lg-offset-1">
-                    <label for="PerfilBúsqueda">Perfil de Búsqueda</label>
-                    @Html.TextAreaFor(x => x.Descripcion, new {@class="form-control", rows="24", id="PerfilBúsqueda", placeholder="Descripción del perfil que necesitas, una serie de aptitudes, conocimientos técnicos,requisitos preferentes y algún comentario particular" })           
+            <div class="rowTitle">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <font size="5" color="white">Registrar Nueva Búsqueda</font>
+                    <a class=" btn btn-info col-lg-offset-1" href="/Busqueda">Volver</a>
                 </div>
             </div>
-
-            <div class="form-group">
-                <div class="col-lg-3 col-lg-offset-1">
-                    <label class="control-label">Publicado en</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="ej: www.educaciónIT.com"> 
-                        <span class="input-group-btn">
-                            <button class="btn btn-info" type="submit">Agregar</button>
-                        </span>
+            <div class="rowDatos">
+            
+                    <div class="form-group">
+                        <div class="col-lg-5 col-lg-offset-1">
+                            <fieldset>
+                                <legend>Perfil de Búsqueda</legend>
+                                <textarea class="form-control" rows="24" id="Descripcion" placeholder="Descripción del perfil que necesitas, una serie de aptitudes, conocimientos técnicos,requisitos preferentes y algún comentario particular"></textarea>
+                            </fieldset>
+                        </div>
                     </div>
-                    @Html.TextAreaFor(x => x.Sitios ,new{ @class="form-control" ,rows="22", id="PerfilBúsqueda", placeholder="Sitios"})      
+            </div>
+   
+        <div class="form-group">
+                <div class="col-lg-3 col-lg-offset-1">
+                    <fieldset>
+                        <legend>Publicado en</legend>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="ej: www.educaciónIT.com">
+                            <span class="input-group-btn">
+                                <button class="btn btn-info" type="button" value="AgregarFuente" id="btn-agregar">Agregar</button> 
+                            </span>                                                             
+                        </div>
+                        <textarea class="form-control" rows="22" id="Fuentes" placeholder="Fuentes"></textarea>
+                    </fieldset>
                 </div>
             </div>
-            <div class="col-lg-1"></div>
-        </div>
 
-        <div class="rowRegistrar">
-            <div class="col-lg-1 col-lg-offset-9">
-                <button class="btn btn-success" type="submit" style='width:102px; height:40px'>Registrar</button>
-            </div>
-            <div class="col-lg-2"></div>
-        </div>
+            <div class="col-lg-1"></div>
     </div>
-</body>
+
+    <div class="rowRegistrar">
+        <div class="col-lg-1 col-lg-offset-9">
+            <a href="/Busqueda/RegistrarBusqueda"class="btn btn-success" type="submit" style='width:102px; height:40px'>Registrar</a>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+
+@section scripts{
+    <script src="~/Scripts/jquery-1.9.1.js"></script>
+    
+    
+    <script>
+        $(function () {
+            $("#btn-agregar").click(function () {
+                var fuente = document.getElementById('agregarsitio').value;
+                var carreo = "\n";                                         
+                var fuentetotal = fuente + carreo;
+                document.getElementById('Fuentes').innerHTML += fuentetotal; 
+            });
+    });
+    </script>
+
+    <script>
+        $(function () {
+            $("#btn-registrar").click(function () {
+                var descripcion = document.getElementById('Descripcion').value;
+                var fuentes = document.getElementById('Fuentes')
+
+                //Me falta el pasar los datos al viewbag con el boton registrar
+                //y el enviar los datos al controlador en un objeto JSON
+            });                                                         
+        });
+    </script>
+
+
+
 }
+</body>
+    
+    
+    
+    
+
     
