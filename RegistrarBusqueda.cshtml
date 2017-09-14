@@ -11,7 +11,7 @@
             <div class="rowTitle">
                 <div class="col-lg-10 col-lg-offset-1">
                     <font size="5" color="white">Registrar Nueva Búsqueda</font>
-                    <a class=" btn btn-info col-lg-offset-1" href="/Busqueda">Volver</a>
+                    <a class=" btn btn-info col-lg-offset-1" href="/Home">Volver</a>
                 </div>
             </div>
             <div class="rowDatos">
@@ -36,7 +36,7 @@
                                 <button class="btn btn-info" type="button" value="AgregarFuente" id="btnAgregar">Agregar</button>
                             </span>
                         </div>
-                        @Html.TextAreaFor(x => x.Fuentes,new{@class="form-control",rows="22",name="Fuentes",id="txt-Fuentes",placeholder="Fuentes"})
+                        @Html.TextAreaFor(x => x.Fuentes, new { @class = "form-control", rows = "22", name = "Fuentes", id = "txt-Fuentes", placeholder = "Fuentes", @readonly = "readonly"})
                     </fieldset>
                 </div>
             </div>
@@ -55,35 +55,61 @@
 @section scripts{
     <script src="~/Scripts/jquery-1.9.1.js"></script>
  
-    <script> //Pasar texto en input Agregar a input Fuentes
+    <script>        
+        
         $(function () {
+            var fuentetotal = "";
+            var fuente = "";
+            var carreo = "\n";
+            var fuentec = "";
+            $('#txt-Fuentes').val("")
+            $('#txt-Descripcion').val("")
+            $('#txt-AgregarSitio').val("")
+            $('#txt-Descripcion').focus()
+        })
+
+        $(function () {     //Pasar texto en input Agregar a input Fuentes
             $("#btnAgregar").click(function () {
-                var fuente = $('#txt-Agregarsitio').val() //Agarrar texto de input agregarsitio y setearle el valor a la variable fuente
-                var carreo = "\n";                                         
-                var fuentec = fuente + carreo
-                var fuentetotal = fuentec 
-                $('#txt-Fuentes').val(fuentetotal) //Setearle el valor del textarea fuentes https://es.stackoverflow.com/questions/45247/c%C3%B3mo-puedo-acumular-un-valor-en-una-variable-con-jquery
-                $('#txt-Agregarsitio').val("")
-            });
-    });
-    </script>
+                var fuente = $('#txt-Agregarsitio').val();
+                var carreo = "\n";
+                var fuentec = fuente + carreo;
+                var fuentetotal = $('#txt-Fuentes').val() + fuentec;
 
-    <script> //Dividir las diferentes fuentes en cadenas 
-        $(function () {
-            $("#btnRegistrar").click(function () {
-                var URL = "@Url.Action("GuardarBusqueda", "Busqueda")";
-                var Fuentes = document.getElementById('txt-Fuentes').value
-                var Descripcion = document.getElementById('txt-Descripcion').value
-
-                $.post(Fuentes, Descripcion)
+                $('#txt-Fuentes').val(fuentetotal); //append(fuentetotal)
+                $('#txt-Agregarsitio').val("");
+                $('#txt-Agregarsitio').focus();
             });
         });
+
+    </script>
+
+    <script>
+
+        $(function () {
+            $("#btnRegistrar").click(function () {
+                var URL = "@Url.Action("GuardarBusqueda","Busqueda")";
+                var Fuentes = $('#txt-Fuentes').val() 
+                var Descripcion = $('#txt-Descripcion').val() 
+                var data = { fuentes: Fuentes, descripcion: Descripcion };
+
+                $.post(URL, data);
+
+                @* $.ajax({
+                        type: "POST",
+                        url: "Busqueda/GuardarBusqueda",
+                        data: JSON.stringify({ fuentes: Fuentes, descripcion: Descripcion }),
+                        contentType: "application/json"
+                    })     
+                *@
+            });
+        });
+
     </script>
 }
 </body>
-    
-    
-    
-    
 
-    
+
+
+
+
+
