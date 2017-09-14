@@ -7,49 +7,54 @@
 <body>
 @using (Html.BeginForm())
     {
-        <div class="Registrar Búsqueda">
+        <div class="RegistrarBusqueda">
             <div class="rowTitle">
                 <div class="col-lg-10 col-lg-offset-1">
                     <font size="5" color="white">Registrar Nueva Búsqueda</font>
                     <a class=" btn btn-info col-lg-offset-1" href="/Home">Volver</a>
                 </div>
             </div>
-            <div class="rowDatos">
 
+            <div class="rowDatos">
+                    <div class="form-group">
+                        <div class="col-lg-5 col-lg-offset-1">
+                            <fieldset>
+                                <legend>Perfil de Búsqueda</legend>                     
+                                @Html.TextAreaFor(x => x.Descripcion, new {@class="form-control",rows="24",name="Descripcion",id="txt-Descripcion",placeholder="Descripción del perfil que necesitas, una serie de aptitudes, conocimientos técnicos,requisitos preferentes y algún comentario particular"})                            
+                            </fieldset>
+                        </div>
+                    </div>
                 <div class="form-group">
-                    <div class="col-lg-5 col-lg-offset-1">
+                    <div class="col-lg-4 col-lg-offset-1">
                         <fieldset>
-                            <legend>Perfil de Búsqueda</legend>                     
-                            @Html.TextAreaFor(x => x.Descripcion, new {@class="form-control",rows="24",name="Descripcion",id="txt-Descripcion",placeholder="Descripción del perfil que necesitas, una serie de aptitudes, conocimientos técnicos,requisitos preferentes y algún comentario particular"})
+                            <legend>Publicado en</legend>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="ej: www.educaciónIT.com" id="txt-Agregarsitio">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-info" type="button" value="AgregarFuente" id="btnAgregar">Agregar</button>
+                                </span>
+                            </div>
+                            @Html.TextAreaFor(x => x.Fuentes, new { @class = "form-control", rows = "22", name = "Fuentes", id = "txt-Fuentes", placeholder = "Fuentes", @readonly = "readonly"})
                         </fieldset>
                     </div>
                 </div>
+                <div class="col-lg-3"></div>
             </div>
 
-            <div class="form-group">
-                <div class="col-lg-3 col-lg-offset-1">
-                    <fieldset>
-                        <legend>Publicado en</legend>
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="ej: www.educaciónIT.com" id="txt-Agregarsitio">
-                            <span class="input-group-btn">
-                                <button class="btn btn-info" type="button" value="AgregarFuente" id="btnAgregar">Agregar</button>
-                            </span>
-                        </div>
-                        @Html.TextAreaFor(x => x.Fuentes, new { @class = "form-control", rows = "22", name = "Fuentes", id = "txt-Fuentes", placeholder = "Fuentes", @readonly = "readonly"})
-                    </fieldset>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="col-lg-1 col-lg-offset-1">
+                        <button class="btn btn-danger" type="button" value="BorrarDescr" id="btnBorrarDescripcion">Borrar Descripción</button>
+                    </div>
+                    <div class="col-lg-1 col-lg-offset-5">
+                        <button class="btn btn-danger" type="button" value="BorrarFuentes" id="btnBorrarFuentes">Borrar Fuentes</button>
+                    </div>
+                    <div class="col-lg-1 col-lg-offset-2">
+                        <button name=" registrar" id="btnRegistrar" class="btn btn-success" type="submit" style="width: 102px; height: 40px">Registrar</button>
+                    </div>
                 </div>
             </div>
-
-            <div class="col-lg-1"></div>
-        </div>
-
-        <div class="rowRegistrar">
-            <div class="col-lg-1 col-lg-offset-9">
-                <button name="Registrar" id="btnRegistrar" class="btn btn-success" type="submit" style='width:102px; height:40px'>Registrar</button> 
-            </div>                                                                                                                         
-            <div class="col-lg-2"></div>
-        </div>
+        </div> 
     }
 
 @section scripts{
@@ -57,7 +62,7 @@
  
     <script>        
         
-        $(function () {
+        $(function () { //Funcion que corre al abrir la página
             var fuentetotal = "";
             var fuente = "";
             var carreo = "\n";
@@ -81,11 +86,7 @@
             });
         });
 
-    </script>
-
-    <script>
-
-        $(function () {
+        $(function () { //Enviar datos Busqueda
             $("#btnRegistrar").click(function () {
                 var URL = "@Url.Action("GuardarBusqueda","Busqueda")";
                 var Fuentes = $('#txt-Fuentes').val() 
@@ -101,6 +102,20 @@
                         contentType: "application/json"
                     })     
                 *@
+            });
+        });
+
+        $(function () { //Borrar contenido Input Descripcion
+            $("#btnBorrarDescripcion").click(function () {
+                $("#txt-Descripcion").val("");
+                $('#txt-Descripcion').focus()
+            });
+        });
+
+        $(function () { //Borrar contenido Textarea Fuentes
+            $("#btnBorrarFuentes").click(function () {
+                $("#txt-Fuentes").val("");
+                $('#txt-Agregarsitio').focus()
             });
         });
 
